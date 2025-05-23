@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Younes - SEO Specialist Portfolio</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #1A1A2E; /* Dark Navy/Indigo Background */
+            color: #EAEAEA; /* Light Gray/Off-White Text */
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: #FFFFFF; /* White Headings */
+        }
+
+        h1 { font-size: 2.8rem; }
+        h2 { font-size: 2.2rem; }
+        h3 { font-size: 1.5rem; }
+
+        p {
+            margin-bottom: 1rem;
+            color: #EAEAEA; /* Light Gray/Off-White Paragraph Text */
+        }
+
+        a {
+            color: #F7B733; /* Warm Gold/Amber Accent */
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #E6A01C; /* Darker Gold on Hover */
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: #1E1E38; /* Slightly Lighter Dark Slate Blue Navbar */
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            border-bottom: 1px solid #333; /* Subtle border */
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #F7B733; /* Gold logo */
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin-left: 20px;
+        }
+
+        .navbar ul li a {
+            color: #EAEAEA; /* Light text for nav links */
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar ul li a:hover,
+        .navbar ul li a.active {
+            color: #F7B733; /* Gold for hover/active */
+        }
+
+        /* Sections General Styling */
+        section {
+            padding: 80px 0;
+            margin-top: 70px; 
+        }
+
+        /* Alternate section background for subtle contrast if desired, or keep all dark */
+        /* section:nth-child(even) {
+             background-color: #1E1E38; 
+        } */
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 700;
+            color: #F7B733; /* Gold section titles */
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: #F7B733; /* Gold underline */
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(rgba(26, 26, 46, 0.85), rgba(26, 26, 46, 0.95)), url('https://via.placeholder.com/1920x1080.png?text=Dark+Tech+Background') no-repeat center center/cover;
+            /* Suggestion: Use a dark, abstract, or tech-themed background image, or a subtle dark gradient if no image */
+            color: #FFFFFF; /* White text on hero */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: 0;
+            padding-top: 70px;
+        }
+
+        #hero .hero-content {
+            max-width: 700px;
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            color: #FFFFFF; /* White hero heading */
+        }
+
+        #hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #EAEAEA; /* Light gray subtitle */
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #F7B733; /* Gold CTA button */
+            color: #1A1A2E; /* Dark text on gold button for contrast */
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold; /* Make text bolder */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(247, 183, 51, 0.3); /* Gold shadow */
+        }
+
+        .cta-button:hover {
+            background-color: #E6A01C; /* Darker gold on hover */
+            color: #1A1A2E;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
+        /* About Section */
+        #about .about-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        #about .about-text {
+            flex: 2;
+        }
+
+        #about .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        #about .about-image img {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #F7B733; /* Gold border for profile image */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        #about .about-text .cta-button { /* Specific CTA in About section */
+             background-color: #6B7280; /* Muted Gray for secondary CTA */
+             color: #FFFFFF;
+             box-shadow: 0 4px 10px rgba(107, 114, 128, 0.2);
+        }
+        #about .about-text .cta-button:hover {
+            background-color: #4B5563; /* Darker Muted Gray */
+            color: #FFFFFF;
+        }
+
+
+        /* Projects Section */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: #1E1E38; /* Dark Slate Blue card background */
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #333; /* Subtle border for cards */
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #333;
+        }
+
+        .project-card .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+            color: #F7B733; /* Gold project titles */
+        }
+        
+        .project-card .tags {
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card .tag {
+            display: inline-block;
+            background-color: #3B3B58; /* Darker tag background */
+            color: #EAEAEA;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .skill-item {
+            background-color: #1E1E38; /* Dark Slate Blue skill item */
+            padding: 1.5rem 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+            transition: transform 0.2s ease;
+            border: 1px solid #333;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-3px);
+            border-color: #F7B733; /* Gold border on hover */
+        }
+
+        .skill-item i { 
+            font-size: 2.5rem;
+            color: #F7B733; /* Gold icons */
+            margin-bottom: 0.75rem;
+        }
+
+        .skill-item p {
+            margin-bottom: 0;
+            font-weight: 500;
+            color: #EAEAEA; /* Light text for skill names */
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: #162447; /* Slightly different dark blue for contact section if desired, or keep same as body */
+            color: #EAEAEA;
+        }
+        #contact .section-title, #contact h2, #contact h3 {
+            color: #F7B733; /* Gold title */
+        }
+        #contact .section-title::after {
+            background-color: #F7B733; /* Gold underline */
+        }
+
+        #contact p {
+            color: #EAEAEA; 
+            text-align: center;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .contact-info a {
+            color: #F7B733; /* Gold links */
+            font-size: 1.1rem;
+            margin: 0 10px;
+        }
+        .contact-info a:hover {
+            color: #EAEAEA; /* Light text on hover */
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0F0F1E; /* Even darker for footer */
+            color: #A9A9A9; /* Muted Gray for footer text */
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 0;
+            border-top: 1px solid #1A1A2E;
+        }
+
+        /* Responsive Design (mostly unchanged, colors adapt automatically) */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            #hero h1 { font-size: 2.5rem; }
+            #hero .subtitle { font-size: 1.2rem; }
+            h2 { font-size: 1.8rem; }
+
+            .navbar .container {
+                flex-direction: column;
+            }
+
+            .navbar ul {
+                margin-top: 10px;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            .navbar ul li {
+                margin: 5px 0;
+            }
+
+            #about .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            #about .about-image {
+                margin-bottom: 1.5rem;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            #hero h1 { font-size: 2rem; }
+            #hero .subtitle { font-size: 1rem; }
+            .cta-button { padding: 10px 20px; font-size: 0.9rem;}
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            }
+        }
+
+    </style>
+    </head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="#hero" class="logo">Younes</a>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hi, I'm Younes</h1>
+                <p class="subtitle">SEO Specialist & WordPress Expert - Boosting Your Online Presence.</p>
+                <a href="#projects" class="cta-button">View My Work</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="./Downloads/342414616_199206289548364_560404399261836824_n.jpg" alt="Younes">
+                    </div>
+                <div class="about-text">
+                    <h3>Hello there! I'm Younes.</h3>
+                    <p>
+                        I'm an SEO Specialist based in Algeria. I have a deep passion for <strong>helping businesses increase their online visibility and achieve sustainable growth through strategic search engine optimization</strong>.
+                        My journey into SEO and WordPress started <strong>when I built my first website and became fascinated by how search engines could connect people with the right information, leading me to explore the intricacies of SEO</strong>.
+                    </p>
+                    <p>
+                        Over the years, I've honed my skills in <strong>Technical SEO, On-Page Optimization, and WordPress development</strong>. I enjoy creating solutions that are not only functional but also user-friendly and strategically optimized to rank.
+                        I'm always eager to learn new search engine trends and take on challenging projects that push my boundaries.
+                    </p>
+                    <p>
+                        When I'm not optimizing websites or working with WordPress, you can find me <strong>trying to learn or Developed my skills</strong>.
+                    </p>
+                    <a href="#contact" class="cta-button">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="./Downloads/b.png" alt="SEO Case Study 1">
+                    <div class="project-info">
+                        <h3>Client SEO Growth</h3>
+                        <p>Boosted organic traffic by 50% for travel agency through comprehensive keyword strategy and technical SEO improvements on their WordPress site.</p>
+                        <div class="tags">
+                            <span class="tag">SEO Audit</span>
+                            <span class="tag">Keyword Research</span>
+                            <span class="tag">WordPress</span>
+                        </div>
+                        <a href="https://www.cipro24.com/" target="_blank">View Details &rarr;</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="./Downloads/t.png" alt="WordPress Site Development">
+                    <div class="project-info">
+                        <h3>Custom WordPress Site</h3>
+                        <p>Developed a fully responsive WordPress website for iptv services with a strong focus on SEO best practices from the ground up.</p>
+                         <div class="tags">
+                            <span class="tag">WordPress</span>
+                            <span class="tag">On-Page SEO</span>
+                            <span class="tag">Responsive Design</span>
+                        </div>
+                        <a href="https://iptvcanada.cc/" target="_blank">View Site &rarr;</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="./Downloads/a.png" alt="Local SEO Success">
+                    <div class="project-info">
+                        <h3>Local Business Ranking</h3>
+                        <p>Improved local search rankings for a menage team in Canada, significantly increasing calls and walk-in customers.</p>
+                         <div class="tags">
+                            <span class="tag">Local SEO</span>
+                            <span class="tag">GMB</span>
+                            <span class="tag">Citations</span>
+                        </div>
+                        <a href="https://o2menage.ca/" target="_blank">Learn More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item"><p>SEO Strategy</p></div>
+                <div class="skill-item"><p>Keyword Research</p></div>
+                <div class="skill-item"><p>On-Page SEO</p></div>
+                <div class="skill-item"><p>Technical SEO</p></div>
+                <div class="skill-item"><p>Off-Page SEO / Link Building</p></div>
+                <div class="skill-item"><p>WordPress Development</p></div>
+                <div class="skill-item"><p>WordPress SEO Plugins</p></div>
+                <div class="skill-item"><p>Google Analytics</p></div>
+                <div class="skill-item"><p>Google Search Console</p></div>
+                <div class="skill-item"><p>Local SEO</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p>
+                I'm always open to discussing new SEO projects, WordPress development, or opportunities to help your business grow online.
+                Based in Algeria, I work with clients locally and internationally. Feel free to reach out!
+            </p>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:younesamari927@gmail.com">younesamari927@gmail.com</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> Younes. All Rights Reserved.</p>
+            <p>SEO Specialist | WordPress Expert | Based in Algeria</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                document.querySelectorAll('.navbar ul li a').forEach(navLink => {
+                    navLink.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        const sections = document.querySelectorAll('section');
+        const navLi = document.querySelectorAll('.navbar ul li a');
+        window.addEventListener('scroll', ()=> {
+            let current = '';
+            sections.forEach( section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - sectionHeight / 3) ){
+                    current = section.getAttribute('id');
+                }
+            })
+            navLi.forEach( a => {
+                a.classList.remove('active');
+                if(a.getAttribute('href') && a.getAttribute('href').substring(1) === current){
+                    a.classList.add('active');
+                }
+            })
+            if (!current && pageYOffset < (sections.length ? sections[0].offsetTop - sections[0].clientHeight / 3 : 100) ) {
+                 const homeLink = document.querySelector('.navbar ul li a[href="#hero"]');
+                 if (homeLink) homeLink.classList.add('active');
+            }
+        });
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+
+</body>
+</html>
